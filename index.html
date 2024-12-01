@@ -181,15 +181,25 @@ print("Total distance:", total_distance_nn)
                 <h2>Question 6:Write a program to improve the performance of minimax algorithm using alpha beta..</h2>
                 <textarea id="code-editor-2" class="code-editor">
 def minimax(depth, node_index, maximizing_player, values, alpha, beta):
-    # Base case: if depth is 3, return the value from the leaf node
     if depth == 3:
         return values[node_index]
-
-    # Determine the eval function based on maximizing or minimizing player
+    
     eval_func = max if maximizing_player else min
-
-    # Initialize best_value based on the player type
     best_value = float('-inf') if maximizing_player else float('inf')
+    
+    for i in range(2):
+        eval = minimax(depth + 1, node_index * 2 + i, not maximizing_player, values, alpha, beta)
+        best_value = eval_func(best_value, eval)
+        alpha, beta = (max(alpha, eval), beta) if maximizing_player else (alpha, min(beta, eval))
+        
+        if beta <= alpha: 
+            break
+    
+    return best_value
+
+values = [3, 5, 6, 9, 1, 2, 0, -1]
+print("The optimal value is:", minimax(0, 0, True, values, float('-inf'), float('inf')))
+
 
     # Iterate over the two child nodes
     for i in range(2):
