@@ -252,32 +252,17 @@ if __name__ == "__main__":
             <div class="tab-panel">
                 <h2>Question 8: Write simple fact for the statements using PROLOG..</h2>
                 <textarea id="code-editor-2" class="code-editor">
-To query these facts in Prolog,
-some example queries:
-1. **Is John a man?**
 man(john).
-Output true.
-2.Is Mary a woman?
 woman(mary).
-AI LAB 8
-Output true.
-3.**Who is the father of Alice?**
-father(X, alice).
-Output Prolog will return X = tom.
-4 **Is Jack taller than John?**
+father(tom, alice).
 taller(jack, john).
-Output If true, Prolog will return true.
 animal(cat).
-Output true.
 sky_is_blue.
-Output return true.
 orbits(earth, sun).
-on(book, X).
-Prolog will return X = table.
+on(book, table).
 vegetable(carrot).
-I Prolog will return true.
-likes(alice, X).
-Prolog will return X = apple.
+likes(alice, apple).
+
 </textarea>
                 <button onclick="runCode(1)">Run Code</button>
                 <pre id="output-2" class="output"></pre>
