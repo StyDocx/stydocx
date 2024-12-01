@@ -21,6 +21,7 @@
                 <li class="tab" onclick="changeTab(6)">Question 7</li>
                 <li class="tab" onclick="changeTab(7)">Question 8</li>
                 <li class="tab" onclick="changeTab(8)">Question 9</li>
+                <li class="tab" onclick="changeTab(9)">Question 2</li>
     
              
             </ul>
@@ -303,6 +304,24 @@ format('TWO + TWO = FOUR: ~d + ~d = ~d~n', [Two, Two, Four]).
                 <button onclick="runCode(1)">Run Code</button>
                 <pre id="output-2" class="output"></pre>
             </div>
+               <h2>Question 2:. Write a Program to solve constraint satisfaction problem.</h2>
+                <textarea id="code-editor-2" class="code-editor">
+!pip install python-constraint
+from constraint import Problem
+problem = Problem()
+problem.addVariable('A', range(1, 6))
+problem.addVariable('B', range(1, 6))
+problem.addVariable('C', range(1, 11))
+problem.addConstraint(lambda a, c: a * 2 == c, ('A', 'C'))
+problem.addConstraint(lambda a, b, c: a + b == c, ('A', 'B', 'C'))
+for solution in problem.getSolutions():
+ print("A: {}, B: {}, C: {}".format(solution['A'], solution['B'], solution['C']))
+
+</textarea>
+                <button onclick="runCode(1)">Run Code</button>
+                <pre id="output-2" class="output"></pre>
+            </div>
+            <div class="tab-panel">
            
             <!-- Add 13 more tab-panels for other questions here -->
         </div>
