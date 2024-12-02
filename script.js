@@ -23,8 +23,8 @@ function runCode(questionIndex) {
     document.execCommand('copy');
     document.body.removeChild(textarea);
     alert('Code copied to clipboard!');
-    } catch (error) {
-        outputElement.textContent = `Error: ${error.message}`;
+  }
+  
     }
 }
 
