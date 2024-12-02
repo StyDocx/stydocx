@@ -15,18 +15,14 @@ function changeTab(tabIndex) {
 }
 
 function runCode(questionIndex) {
-    const code = document.getElementById(`code-editor-${questionIndex + 1}`).value;
-    const outputElement = document.getElementById(`output-${questionIndex + 1}`);
-
-    try {
-        // Here we will use Brython to execute the Python code in the browser
-        // In production, you would need to use a back-end (like Flask) for code execution
-        Brython({debug: 1, ipython: 1});
-        outputElement.textContent = '';  // Clear previous output
-        
-        // Execute the code
-        let result = eval(code);
-        outputElement.textContent = result;
+    const code = document.getElementById(id).textContent;
+    const textarea = document.createElement('textarea');
+    textarea.value = code;
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textarea);
+    alert('Code copied to clipboard!');
     } catch (error) {
         outputElement.textContent = `Error: ${error.message}`;
     }
